@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "crm-frontend:build:production"
+              "buildTarget": "crm-frontend:build:production"
             },
             "development": {
-              "browserTarget": "crm-frontend:build:development"
+              "buildTarget": "crm-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crm-frontend:build"
+            "buildTarget": "crm-frontend:build"
           }
         },
         "test": {
