@@ -1,25 +1,79 @@
-<h2>Inscription</h2>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label>Nom:</label>
-    <input formControlName="nom" />
-    <div *ngIf="registerForm.get('nom')?.invalid && registerForm.get('nom')?.touched">
-      Nom requis
+<div class="relative max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg border border-gray-200">
+  <!-- Logo de l'entreprise en arrière-plan -->
+  <div class="absolute inset-0 flex justify-center items-center opacity-10">
+    <img src="assets/images/ktech-logo.webp" alt="KTECH SOLUTIONS" class="h-80">
+  </div>
+
+  <div class="relative z-10">
+    <h2 class="text-4xl font-semibold text-center mb-8 text-indigo-600">Inscription</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-8">
+      <!-- Nom avec icône et effet de focus -->
+      <div class="mb-6">
+        <div class="flex items-center border border-gray-300 rounded-md shadow-sm p-3 transition duration-300 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+          <i class="fas fa-user text-gray-400 mr-3"></i>
+          <input 
+            type="text" 
+            id="nom" 
+            formControlName="nom" 
+            class="w-full bg-white focus:outline-none text-gray-700 placeholder-gray-500 rounded-md"
+            placeholder="Votre nom complet" 
+          />
+        </div>
+        <div *ngIf="registerForm.get('nom')?.invalid && registerForm.get('nom')?.touched" class="text-red-600 text-sm mt-2">
+          Nom requis
+        </div>
+      </div>
+
+      <!-- Email avec icône et effet de focus -->
+      <div class="mb-6">
+        <div class="flex items-center border border-gray-300 rounded-md shadow-sm p-3 transition duration-300 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+          <i class="fas fa-envelope text-gray-400 mr-3"></i>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email" 
+            class="w-full bg-white focus:outline-none text-gray-700 placeholder-gray-500 rounded-md"
+            placeholder="Votre adresse email" 
+          />
+        </div>
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-red-600 text-sm mt-2">
+          Email requis
+        </div>
+      </div>
+
+      <!-- Mot de passe avec icône et effet de focus -->
+      <div class="mb-6">
+        <div class="flex items-center border border-gray-300 rounded-md shadow-sm p-3 transition duration-300 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+          <i class="fas fa-lock text-gray-400 mr-3"></i>
+          <input 
+            type="password" 
+            id="motDePasse" 
+            formControlName="motDePasse" 
+            class="w-full bg-white focus:outline-none text-gray-700 placeholder-gray-500 rounded-md"
+            placeholder="Votre mot de passe" 
+          />
+        </div>
+        <div *ngIf="registerForm.get('motDePasse')?.invalid && registerForm.get('motDePasse')?.touched" class="text-red-600 text-sm mt-2">
+          Mot de passe requis
+        </div>
+      </div>
+
+      <!-- Bouton de soumission plus accrocheur -->
+      <button 
+        type="submit" 
+        [disabled]="registerForm.invalid" 
+        class="w-full bg-gradient-to-r from-indigo-600 to-teal-500 text-white p-3 rounded-md hover:from-indigo-700 hover:to-teal-600 transition duration-300 ease-in-out shadow-md flex justify-center items-center">
+        <i class="fas fa-user-plus mr-2"></i> S'inscrire
+      </button>
+    </form>
+
+    <!-- Lien vers la page de connexion -->
+    <div class="mt-8 text-center">
+      <span class="text-gray-500">Déjà inscrit ?</span>
+      <a routerLink="/login" class="text-indigo-600 hover:underline text-sm font-medium flex items-center justify-center">
+        <i class="fas fa-sign-in-alt mr-2"></i> Connexion
+      </a>
     </div>
   </div>
-  <div>
-    <label>Email:</label>
-    <input formControlName="email" />
-    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
-      Email requis
-    </div>
-  </div>
-  <div>
-    <label>Mot de passe:</label>
-    <input type="password" formControlName="motDePasse" />
-    <div *ngIf="registerForm.get('motDePasse')?.invalid && registerForm.get('motDePasse')?.touched">
-      Mot de passe requis
-    </div>
-  </div>
-  <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
-</form>
+</div>

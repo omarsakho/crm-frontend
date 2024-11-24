@@ -1,0 +1,23 @@
+/* styles.css ou le CSS du composant */
+
+html, body {
+    height: 100%; /* Assure que le corps prend toute la hauteur */
+    margin: 0; /* Supprime la marge par défaut */
+  }
+  
+  .form-container {
+    display: flex; /* Utilise le flexbox pour centrer */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  }
+  
+  .form {
+    width: 300px; /* Largeur du formulaire */
+    padding: 20px; /* Ajoute de l'espace à l'intérieur du formulaire */
+    border: 1px solid #ccc; /* Bordure du formulaire */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre du formulaire */
+  }
+  

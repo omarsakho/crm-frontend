@@ -1,0 +1,46 @@
+/* Animation pour les sélecteurs et champs */
+.animated-select, input[type="date"] {
+  transition: all 0.3s ease;
+}
+
+.animated-select:focus, input[type="date"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Effet de survol pour les boutons */
+.btn-filter {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-filter:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Ajout de transitions aux champs et groupes d'entrées */
+.input-group-text {
+  transition: background-color 0.3s ease;
+}
+
+.input-group:hover .input-group-text {
+  background-color: #0056b3; /* Changement de couleur au survol */
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-lg {
+  border-radius: 12px;
+}
+
+/* Carte des tickets */
+.ticket-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

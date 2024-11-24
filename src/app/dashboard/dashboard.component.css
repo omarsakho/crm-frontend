@@ -1,0 +1,72 @@
+.card {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    padding: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+  }
+  
+  .stat-number {
+    font-size: 1.1rem;
+    color: #2c3e50;
+  }
+  
+  .stat-number .badge {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-weight: 700;
+    color: #34495e;
+  }
+  
+  canvas {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bi {
+    font-size: 1.5rem;
+  }
+  
+  .card-body p {
+    margin-bottom: 1.0rem;
+  }
+  
+  .card-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card-header i {
+    font-size: 1.5rem;
+  }
+  
+  .card-body .badge-info {
+    background-color: #17a2b8;
+  }
+  
+  .card-body .badge-warning {
+    background-color: #ffc107;
+  }
+  
+  .card-body .badge-primary {
+    background-color: #007bff;
+  }
+  
+  .card-body .badge-success {
+    background-color: #28a745;
+  }
+  
+  .card-body .badge-danger {
+    background-color: #dc3545;
+  }
+  

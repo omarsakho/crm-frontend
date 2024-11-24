@@ -1,0 +1,61 @@
+/* Largeur complète pour le tableau */
+table.mat-table {
+    width: 100%;
+    margin-bottom: 20px; /* Espace après le tableau */
+}
+
+/* Espacement autour des cellules */
+.mat-header-cell, .mat-cell {
+    padding: 12px 16px;
+    text-align: left; /* Alignement à gauche des cellules */
+}
+
+/* Style pour les en-têtes */
+.mat-header-cell {
+    font-weight: bold;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+    text-transform: uppercase; /* Transformer le texte en majuscules */
+}
+
+/* Style des lignes du tableau */
+.mat-row:nth-child(odd) {
+    background-color: #f9f9f9; /* Couleur de fond alternée pour les lignes impaires */
+}
+
+/* Hover effect sur les lignes */
+.mat-row:hover {
+    background-color: #e0f7fa; /* Changement de fond sur le survol */
+}
+
+/* Badges pour les rôles */
+.badge {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+    border-radius: 0.5rem; /* Bords arrondis pour un aspect plus moderne */
+    text-transform: capitalize; /* Capitaliser le premier caractère du rôle */
+}
+
+/* Style des boutons d'action */
+.mat-icon-button {
+    margin: 0 5px; /* Espace entre les boutons */
+    transition: background-color 0.3s; /* Animation pour un effet plus fluide */
+}
+
+.mat-icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Fond léger sur hover */
+}
+
+/* Amélioration du bouton Ajouter un utilisateur */
+.btn-rounded {
+    border-radius: 20px; /* Boutons arrondis */
+    padding: 10px 20px; /* Plus d'espace intérieur */
+    font-size: 1rem; /* Taille de police plus grande */
+    font-weight: bold;
+}
+
+/* Alignement central du texte dans le cas où il n'y a aucun utilisateur */
+.text-center h3 {
+    color: #757575; /* Couleur grise subtile */
+    font-size: 1.25rem;
+}

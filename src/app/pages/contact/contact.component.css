@@ -1,0 +1,71 @@
+/* Conteneur principal */
+.contact-container {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Titre du formulaire */
+  .contact-title {
+    font-size: 2.5rem;
+    color: #007bff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Texte introductif */
+  .contact-text {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Champs du formulaire */
+  .form-group label {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  }
+  
+  /* Bouton de soumission */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Ajout d'une ombre au survol */
+  .form-control:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

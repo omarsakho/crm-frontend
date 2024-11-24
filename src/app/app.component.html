@@ -1,7 +1,11 @@
-<app-header></app-header>
+<div class="d-flex flex-column min-vh-100">
+  <app-header></app-header> <!-- Inclusion de l'en-tête -->
 
-<div class="content">
-  <router-outlet></router-outlet>
+  <main class="flex-fill content" style="padding-bottom: 80px;"> <!-- Ajustez la valeur si nécessaire -->
+    <div class="container mt-5">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <app-footer></app-footer> <!-- Inclusion du pied de page -->
 </div>
-
-<app-footer></app-footer>

@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-header text-center bg-primary text-white">
+          <h2>{{ editMode ? 'Modifier' : 'Ajouter' }} un utilisateur</h2>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3 position-relative">
+              <label for="nom" class="form-label">Nom :</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input 
+                  type="text" 
+                  id="nom" 
+                  formControlName="nom" 
+                  class="form-control border-primary"
+                  placeholder="Entrez le nom" />
+              </div>
+              <div *ngIf="userForm.get('nom')?.invalid && userForm.get('nom')?.touched" class="text-danger">
+                Nom requis
+              </div>
+            </div>
+            <div class="mb-3 position-relative">
+              <label for="email" class="form-label">Email :</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input 
+                  type="email" 
+                  id="email" 
+                  formControlName="email" 
+                  class="form-control border-primary"
+                  placeholder="Entrez l'email" />
+              </div>
+              <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger">
+                Email requis
+              </div>
+            </div>
+            <div class="mb-3 position-relative">
+              <label for="role" class="form-label">Rôle :</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                </div>
+                <select id="role" formControlName="role" class="form-control border-primary">
+                  <option value="client">Client</option>
+                  <option value="agent">Agent</option>
+                  <option value="administrateur">Administrateur</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3 position-relative" *ngIf="!editMode">
+              <label for="motDePasse" class="form-label">Mot de passe :</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                <input 
+                  type="password" 
+                  id="motDePasse" 
+                  formControlName="motDePasse" 
+                  class="form-control border-primary"
+                  placeholder="Entrez le mot de passe" />
+              </div>
+              <div *ngIf="userForm.get('motDePasse')?.invalid && userForm.get('motDePasse')?.touched" class="text-danger">
+                Mot de passe requis
+              </div>
+            </div>
+            <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary w-100">
+              {{ editMode ? 'Mettre à jour' : 'Ajouter' }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

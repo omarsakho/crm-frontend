@@ -1,24 +1,64 @@
-<nav class="navbar">
-    <div class="navbar-brand">
-      <fa-icon [icon]="faHome"></fa-icon>
-      <span>Mon Application</span>
-    </div>
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn">
-          <fa-icon [icon]="faUser"></fa-icon> Connexion
-        </a>
-      </li>
-      <li class="nav-item" *ngIf="!isLoggedIn">
-        <a class="nav-link" routerLink="/inscription">
-          <fa-icon [icon]="faUser"></fa-icon> Inscription
-        </a>
-      </li>
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <a class="nav-link" (click)="logout()">
-          <fa-icon [icon]="faSignOutAlt"></fa-icon> Déconnexion
-        </a>
-      </li>
-    </ul>
-  </nav>
-  
+<nav class="navbar fixed-top">
+  <!-- Logo KTECH SOLUTIONS -->
+  <div class="navbar-brand">
+    <img src="assets/images/ktech-logo.webp" alt="KTECH SOLUTIONS" class="navbar-logo">
+  </div>
+
+  <ul class="nav">
+    <!-- Lien Dashboard (visible si connecté) -->
+    <li class="nav-item" *ngIf="isLoggedIn && isAdmin()">
+      <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <fa-icon [icon]="faTachometerAlt"></fa-icon> Dashboard
+      </a>
+    </li>
+
+    <!-- Lien Liste des Utilisateurs (visible si l'utilisateur est un administrateur) -->
+    <li class="nav-item" *ngIf="isLoggedIn && isAdmin()">
+      <a class="nav-link" [routerLink]="['/users']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <fa-icon [icon]="faUsers"></fa-icon> Liste des Utilisateurs
+      </a>
+    </li>
+
+    <!-- Lien Liste des Tickets (visible pour tous les utilisateurs connectés) -->
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a class="nav-link" [routerLink]="['/tickets']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <fa-icon [icon]="faListAlt"></fa-icon> Liste des Tickets
+      </a>
+    </li>
+
+    <!-- Lien Liste des Rendez-vous (visible pour tous les utilisateurs connectés) -->
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a class="nav-link" [routerLink]="['/rendezvous']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <fa-icon [icon]="faCalendarAlt"></fa-icon> Rendez-vous
+      </a>
+    </li>
+
+    <!-- Lien Factures (visible pour les utilisateurs ayant un rôle spécifique, comme administrateurs ou agents) -->
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a class="nav-link" [routerLink]="['/factures']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <fa-icon [icon]="faFileInvoiceDollar"></fa-icon> Factures
+      </a>
+    </li>
+  </ul>
+
+  <ul class="nav ml-auto">
+    <!-- Lien Connexion -->
+    <li class="nav-item" *ngIf="!isLoggedIn">
+      <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <fa-icon [icon]="faUser"></fa-icon> Connexion
+      </a>
+    </li>
+
+    <!-- Lien Profil (visible si connecté) -->
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a class="nav-link" (click)="toggleProfileForm()" routerLinkActive="active">
+        <fa-icon [icon]="faUserCircle"></fa-icon> Profil
+      </a>
+    </li>
+  </ul>
+
+  <!-- Formulaire de profil affiché à droite -->
+  <div class="profil-form-container" [ngClass]="{'show': showProfileForm}">
+    <app-profil></app-profil>
+  </div>
+</nav>

@@ -1,0 +1,71 @@
+.create-facture {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-facture .header {
+  font-size: 24px;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+.facture-form .form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mat-form-field {
+  margin-bottom: 20px;
+}
+
+.mat-form-field.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #f1f3f5;
+  border-radius: 8px;
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button mat-icon {
+  margin-right: 8px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.alert {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.alert-danger {
+  background-color: #dc3545;
+  color: white;
+}

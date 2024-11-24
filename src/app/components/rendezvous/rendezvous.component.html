@@ -1,0 +1,46 @@
+<div class="container mt-5 rendezvous-container">
+  <h2 class="rendezvous-title">{{ isEditing ? 'Modifier le Rendez-vous' : 'Planifier un Rendez-vous' }}</h2>
+
+  <!-- Affichage des messages d'erreur -->
+  <div *ngIf="errorMessage" class="alert alert-danger error-message">
+    {{ errorMessage }}
+  </div>
+
+  <form [formGroup]="rendezvousForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="date_rendezvous">Date du Rendez-vous</label>
+      <input 
+        type="datetime-local" 
+        id="date_rendezvous" 
+        class="form-control date-input" 
+        formControlName="date_rendezvous" 
+        [min]="minDate"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="lieu">Lieu du Rendez-vous</label>
+      <input 
+        type="text" 
+        id="lieu" 
+        class="form-control location-input" 
+        formControlName="lieu" 
+        required>
+    </div>
+
+    <button 
+      type="submit" 
+      class="btn btn-primary submit-btn"
+      [disabled]="rendezvousForm.invalid">
+      {{ isEditing ? 'Modifier' : 'Planifier' }}
+    </button>
+  </form>
+
+  <!-- Bouton pour annuler si en mode édition -->
+  <button 
+    *ngIf="isEditing" 
+    class="btn btn-danger cancel-btn mt-3" 
+    (click)="annulerRendezvous()">
+    Annuler le Rendez-vous
+  </button>
+</div>

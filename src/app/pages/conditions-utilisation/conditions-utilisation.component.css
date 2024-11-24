@@ -1,0 +1,63 @@
+/* Conteneur principal */
+.terms-container {
+    background-color: #f4f6f9;
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titres principaux */
+  .terms-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Sous-titres */
+  .terms-subtitle {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  
+  /* Texte de paragraphe */
+  .terms-text {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  /* Liste des conditions */
+  .terms-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .terms-list li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #555;
+  }
+  
+  /* Icônes de la liste */
+  .terms-list li i {
+    margin-right: 10px;
+    color: #007bff;
+    font-size: 1.2rem;
+  }
+  
+  /* Effet au survol */
+  .terms-list li:hover {
+    color: #007bff;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  

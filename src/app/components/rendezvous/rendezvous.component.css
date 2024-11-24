@@ -1,0 +1,84 @@
+/* Conteneur principal */
+.rendezvous-container {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Titre */
+  .rendezvous-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  /* Champs de formulaire */
+  .form-group label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-control {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  }
+  
+  .date-input, .location-input {
+    margin-bottom: 20px;
+  }
+  
+  /* Bouton principal */
+  .submit-btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Bouton d'annulation */
+  .cancel-btn {
+    background-color: #dc3545;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Message d'erreur */
+  .error-message {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  

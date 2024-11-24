@@ -1,0 +1,58 @@
+.card {
+    background-color: #f8f9fa; /* Couleur de fond légère */
+    border-radius: 0.5rem; /* Coins arrondis */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+h2 {
+    color: #343a40; /* Couleur du titre */
+    font-size: 1.25rem; /* Taille de police ajustée */
+    margin-bottom: 0.5rem; /* Réduction de la marge inférieure */
+}
+
+.mb-2 {
+    margin-bottom: 0.3rem; /* Réduction de la marge inférieure pour les champs */
+}
+
+.form-control {
+    font-size: 0.85rem; /* Réduction de la taille de police pour les champs de saisie */
+}
+
+.btn-primary {
+    font-size: 0.85rem; /* Réduction de la taille du texte du bouton */
+}
+
+.alert {
+    font-size: 0.85rem; /* Réduction de la taille de police pour l'alerte */
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.15rem; /* Ajustement de la taille du titre sur les petits écrans */
+    }
+    
+    .btn-primary {
+        font-size: 0.75rem; /* Ajustement de la taille du bouton */
+    }
+
+    .form-control {
+        font-size: 0.85rem; /* Ajustement de la taille des champs de saisie */
+    }
+}
+
+.card {
+    max-width: 400px; /* Limiter la largeur de la carte */
+    margin: auto; /* Centrer la carte */
+}
+
+.btn {
+    font-size: 0.9rem; /* Réduire la taille du texte des boutons */
+}
+
+.form-control {
+    font-size: 0.9rem; /* Réduire la taille du texte des champs */
+}
+
+.alert {
+    font-size: 0.85rem; /* Réduire la taille du texte de l'alerte */
+}

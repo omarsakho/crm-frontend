@@ -1,0 +1,40 @@
+<div class="container mt-2">
+    <h2 class="text-center mb-2" style="font-size: 1.25rem;">Mon Profil</h2>
+    <form [formGroup]="profilForm" (ngSubmit)="onSubmit()" class="card p-2 shadow-sm">
+        
+        <!-- Champ Nom -->
+        <div class="mb-2">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" id="nom" formControlName="nom" class="form-control" placeholder="Entrez votre nom" />
+            <div class="invalid-feedback" *ngIf="profilForm.get('nom')?.invalid && profilForm.get('nom')?.touched">
+                Nom est requis.
+            </div>
+        </div>
+
+        <!-- Champ Email -->
+        <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" formControlName="email" class="form-control" placeholder="Entrez votre email" />
+            <div class="invalid-feedback" *ngIf="profilForm.get('email')?.invalid && profilForm.get('email')?.touched">
+                Un email valide est requis.
+            </div>
+        </div>
+
+        <!-- Champ Mot de Passe -->
+        <div class="mb-2">
+            <label for="motDePasse" class="form-label">Nouveau Mot de Passe</label>
+            <input type="password" id="motDePasse" formControlName="motDePasse" class="form-control" placeholder="Laissez vide si vous ne voulez pas changer" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-sm w-100" [disabled]="profilForm.invalid">Mettre à jour</button>
+        
+        <!-- Bouton Déconnexion avec icône -->
+        <button type="button" class="btn btn-danger btn-sm w-100 mt-2" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Déconnexion
+        </button>
+
+        <div class="mt-2" *ngIf="messageSuccess">
+            <div class="alert alert-success">{{ messageSuccess }}</div>
+        </div>
+    </form>
+</div>

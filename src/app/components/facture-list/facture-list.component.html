@@ -1,0 +1,30 @@
+<div class="factures">
+  <h2 class="factures-title">Liste des Factures</h2>
+
+  <div class="facture-cards">
+    <mat-card *ngFor="let facture of factures.data" class="facture-card">
+      <mat-card-header class="facture-card-header">
+        <mat-card-title>Facture ID: {{ facture.id }}</mat-card-title>
+        <mat-card-subtitle>
+          Client: {{ facture.client ? facture.client.nom : 'N/A' }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="facture-card-content">
+        <p><strong>Montant:</strong> {{ facture.montant | currency:'EUR' }}</p>
+        <p><strong>Numéro de Ticket:</strong> {{ facture.ticket ? facture.ticket.id : 'N/A' }}</p>
+        <p><strong>Date d'Émission:</strong> {{ facture.dateEmission | date }}</p>
+        <p><strong>Date Limite:</strong> {{ facture.dateLimite | date }}</p>
+        <p><strong>État de Paiement:</strong> {{ facture.etat_paiement }}</p>
+        <p><strong>Date de Paiement:</strong> {{ facture.datePaiement ? (facture.datePaiement | date) : 'N/A' }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <!-- Le bouton "Payer la facture" s'affiche uniquement si l'état de paiement n'est pas "payée" -->
+        <a *ngIf="facture.etat_paiement !== 'payée'" mat-button color="primary" [routerLink]="['/paiement', facture.id]" class="pay-button">
+          <mat-icon>payment</mat-icon> Payer la Facture
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<!-- src/app/components/create-facture/create-facture.component.html -->
+<div class="create-facture">
+  <h2 class="header text-center">Créer une facture pour le ticket #{{ ticketId }}</h2>
+  
+  <!-- Message de succès ou d'erreur -->
+  <div *ngIf="message" [ngClass]="{'alert-success': message.type === 'success', 'alert-danger': message.type === 'error'}" class="alert">
+    {{ message.text }}
+  </div>
+
+  <form (ngSubmit)="submitFacture()" class="facture-form">
+    <div class="form-container">
+      <!-- Mat Form Field with Material Input -->
+      <mat-form-field appearance="fill" class="full-width mb-4">
+        <mat-label>Montant</mat-label>
+        <input matInput type="number" [(ngModel)]="montant" name="montant" required placeholder="Entrez le montant" />
+        <mat-icon matPrefix>attach_money</mat-icon>
+      </mat-form-field>
+  
+      <!-- Submit Button -->
+      <button mat-raised-button color="primary" type="submit" class="submit-button">
+        <mat-icon>check_circle</mat-icon> Créer la facture
+      </button>
+    </div>
+  </form>
+</div>

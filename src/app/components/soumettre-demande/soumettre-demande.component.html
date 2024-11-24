@@ -1,0 +1,62 @@
+<h2 class="text-center mb-5 font-weight-bold text-primary">Soumettre une Demande de Support</h2>
+
+<form (ngSubmit)="soumettreDemande()" class="support-form mx-auto p-5" style="max-width: 650px; background-color: #ffffff; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+  <!-- Description Field -->
+  <div class="form-group mb-4">
+    <label for="description" class="form-label font-weight-bold text-secondary">Description</label>
+    <textarea 
+      id="description" 
+      [(ngModel)]="ticketData.description" 
+      name="description" 
+      required 
+      rows="6" 
+      class="form-control" 
+      placeholder="Décrivez votre demande..." 
+      style="border-radius: 12px; padding: 14px; border: 1px solid #ccc; transition: all 0.3s ease; font-size: 1rem;"></textarea>
+    <small class="form-text text-muted">Fournissez une description détaillée de votre demande.</small>
+  </div>
+
+  <!-- Priority Field -->
+  <div class="form-group mb-4">
+    <label for="priorite" class="form-label font-weight-bold text-secondary">Priorité</label>
+    <select 
+      id="priorite" 
+      [(ngModel)]="ticketData.priorite" 
+      name="priorite" 
+      class="form-control" 
+      required 
+      style="border-radius: 12px; padding: 14px; border: 1px solid #ccc; transition: all 0.3s ease; font-size: 1rem;">
+      <option value="" disabled selected>Choisissez une priorité</option>
+      <option value="faible">Faible</option>
+      <option value="moyenne">Moyenne</option>
+      <option value="haute">Haute</option>
+    </select>
+    <small class="form-text text-muted">Définissez la priorité de votre demande.</small>
+  </div>
+
+  <!-- Request Type Field -->
+  <div class="form-group mb-4">
+    <label for="type_demande" class="form-label font-weight-bold text-secondary">Type de demande</label>
+    <select 
+      id="type_demande" 
+      [(ngModel)]="ticketData.type_demande" 
+      name="type_demande" 
+      class="form-control" 
+      required 
+      style="border-radius: 12px; padding: 14px; border: 1px solid #ccc; transition: all 0.3s ease; font-size: 1rem;">
+      <option value="" disabled selected>Choisissez un type de demande</option>
+      <option value="technique">Technique</option>
+      <option value="commercial">Commercial</option>
+      <option value="autre">Autre</option>
+    </select>
+    <small class="form-text text-muted">Indiquez le type de demande pour un traitement plus rapide.</small>
+  </div>
+
+  <!-- Submit Button -->
+  <button 
+    type="submit" 
+    class="btn btn-primary btn-block font-weight-bold" 
+    style="padding: 15px 25px; border-radius: 15px; font-size: 18px; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <i class="fas fa-paper-plane" style="margin-right: 12px;"></i> Soumettre la demande
+  </button>
+</form>

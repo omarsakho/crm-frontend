@@ -1,1 +1,186 @@
-<p>dashboard works!</p>
+<div class="container my-5">
+  <h2 class="text-center mb-5 display-4">Tableau de bord</h2>
+
+  <!-- Statistiques des tickets (sur toute la largeur) -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-lg border-0 rounded-lg card-hover">
+        <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+          <h3 class="h5 mb-0"><i class="bi bi-ticket-fill me-2"></i>Statistiques des tickets</h3>
+          <i class="bi bi-pie-chart-fill fs-3"></i>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- Colonne pour le graphique -->
+            <div class="col-md-6">
+              <canvas id="ticketChart"></canvas>
+            </div>
+            
+            <!-- Colonne pour les statistiques -->
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+              <div class="row g-3">
+            
+                <!-- Tickets en Attente -->
+                <div class="col-md-8">
+                  <div class="card shadow-sm border-0 rounded-lg p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-hourglass-split fs-2 text-warning me-3"></i>
+                        <div>
+                          <p class="mb-0"><strong>Tickets en Attente</strong></p>
+                        </div>
+                      </div>
+                      <span class="badge bg-warning fs-5">{{ statistics?.tickets.en_attente }}</span>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Tickets en Cours -->
+                <div class="col-md-8">
+                  <div class="card shadow-sm border-0 rounded-lg p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-clock-history fs-2 text-primary me-3"></i>
+                        <div>
+                          <p class="mb-0"><strong>Tickets en Cours</strong></p>
+                        </div>
+                      </div>
+                      <span class="badge bg-primary fs-5">{{ statistics?.tickets.en_cours }}</span>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Tickets Résolu -->
+                <div class="col-md-8">
+                  <div class="card shadow-sm border-0 rounded-lg p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill fs-2 text-success me-3"></i>
+                        <div>
+                          <p class="mb-0"><strong>Tickets Résolu</strong></p>
+                        </div>
+                      </div>
+                      <span class="badge bg-success fs-5">{{ statistics?.tickets.resolu }}</span>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Total Tickets (à droite) -->
+                <div class="col-md-8">
+                  <div class="card shadow-sm border-0 rounded-lg p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-ticket-fill fs-2 text-info me-3"></i>
+                        <div>
+                          <p class="mb-0"><strong>Total Tickets</strong></p>
+                        </div>
+                      </div>
+                      <span class="badge bg-info fs-5">{{ statistics?.tickets.total }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                         
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <!-- Statistiques des factures (gauche) -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-lg border-0 rounded-lg card-hover">
+        <div class="card-header bg-success text-white d-flex align-items-center justify-content-between">
+          <h3 class="h5 mb-0"><i class="bi bi-receipt me-2"></i>Statistiques des factures</h3>
+          <i class="bi bi-bar-chart-fill fs-3"></i>
+        </div>
+        <div class="card-body">
+          <canvas id="invoiceChart"></canvas>
+          <div class="mt-4">
+            
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-hourglass-split text-warning fs-4 me-3"></i>
+              <p class="stat-number mb-0"><strong>Factures en Attente:</strong> <span class="badge bg-warning">{{ statistics?.factures.en_attente }}</span></p>
+            </div>
+            
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+              <p class="stat-number mb-0"><strong>Factures Payées:</strong> <span class="badge bg-success">{{ statistics?.factures.payees }}</span></p>
+            </div>
+            
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-exclamation-triangle-fill text-danger fs-4 me-3"></i>
+              <p class="stat-number mb-0"><strong>Factures en Retard:</strong> <span class="badge bg-danger">{{ statistics?.factures.en_retard }}</span></p>
+            </div>
+
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-receipt text-info fs-4 me-3"></i>
+              <p class="stat-number mb-0"><strong>Total Factures:</strong> <span class="badge bg-info">{{ statistics?.factures.total }}</span></p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Montants des factures (droite) -->
+    <div class="col-md-6">
+      <div class="row">
+        <!-- Montant total des factures aujourd'hui -->
+        <div class="col-md-12 mb-4">
+          <div class="card shadow-lg border-0 rounded-lg card-hover">
+            <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
+              <h3 class="h5 mb-0">Montant D'Aujourd'hui</h3>
+              <i class="bi bi-calendar-day fs-3"></i>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h4 class="stat-number fs-3"><strong>{{ statistics?.factures.montant_total_journalier }}</strong></h4>
+                <span class="badge bg-warning text-dark p-2 fs-5"><i class="bi bi-currency-euro"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Montant total des factures ce mois -->
+        <div class="col-md-12 mb-4">
+          <div class="card shadow-lg border-0 rounded-lg card-hover">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+              <h3 class="h5 mb-0">Montant Total du Mois</h3>
+              <i class="bi bi-calendar-month fs-3"></i>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h4 class="stat-number fs-3"><strong>{{ statistics?.factures.montant_total_mensuel }}</strong></h4>
+                <span class="badge bg-success text-dark p-2 fs-5"><i class="bi bi-currency-euro"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Montant total des factures -->
+        <div class="col-md-12 mb-4">
+          <div class="card shadow-lg border-0 rounded-lg card-hover">
+            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+              <h3 class="h5 mb-0">Montant Total</h3>
+              <i class="bi bi-wallet2 fs-3"></i>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h4 class="stat-number fs-3"><strong>{{ statistics?.factures.montant_total }}</strong></h4>
+                <span class="badge bg-info text-dark p-2 fs-5"><i class="bi bi-currency-euro"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap and icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">

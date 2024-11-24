@@ -1,18 +1,64 @@
-<h2>Connexion</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label>Email:</label>
-    <input formControlName="email" />
-    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-      Email requis
+<div class="relative max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg border border-gray-200">
+  <!-- Logo de l'entreprise en arrière-plan avec une taille agrandie -->
+  <div class="absolute inset-0 flex justify-center items-center opacity-10 pointer-events-none">
+    <img src="assets/images/ktech-logo.webp" alt="KTECH SOLUTIONS" class="h-56">
+  </div>
+
+  <div class="relative z-10">
+    <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Connexion</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      <!-- Email avec icône -->
+      <div class="relative">
+        <i class="fas fa-envelope absolute left-3 top-3 text-gray-400"></i>
+        <input 
+          id="email" 
+          formControlName="email" 
+          type="email"
+          class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm placeholder-gray-400"
+          placeholder="Entrez votre email"
+        />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-red-600 text-sm mt-1">
+          L'email est requis.
+        </div>
+      </div>
+      
+      <!-- Mot de passe avec icône -->
+      <div class="relative">
+        <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i>
+        <input 
+          id="motDePasse" 
+          type="password" 
+          formControlName="motDePasse" 
+          class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm placeholder-gray-400"
+          placeholder="Entrez votre mot de passe" 
+        />
+        <div *ngIf="loginForm.get('motDePasse')?.invalid && loginForm.get('motDePasse')?.touched" class="text-red-600 text-sm mt-1">
+          Le mot de passe est requis.
+        </div>
+      </div>
+
+      <!-- Affichage des messages d'erreur de connexion -->
+      <div *ngIf="errorMessage" class="text-red-600 text-sm text-center mt-2">{{ errorMessage }}</div>
+
+      <!-- Bouton de soumission -->
+      <button 
+        type="submit" 
+        [disabled]="loginForm.invalid" 
+        class="w-full bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 rounded-md hover:from-blue-700 hover:to-teal-600 transition duration-300 ease-in-out shadow-lg flex justify-center items-center"
+      >
+        <i class="fas fa-sign-in-alt mr-2"></i> Se connecter
+      </button>
+    </form>
+
+    <!-- Lien vers la page de réinitialisation du mot de passe et inscription -->
+    <div class="mt-6 text-center space-y-3">
+      <a routerLink="/mot-de-passe-oublie" class="text-blue-600 hover:underline text-sm font-medium">Mot de passe oublié ?</a>
+
+      <div class="text-sm font-medium text-gray-700">
+        Vous n'avez pas de compte ? 
+        <a routerLink="/inscription" class="text-blue-600 hover:underline">Inscrivez-vous</a>
+      </div>
     </div>
   </div>
-  <div>
-    <label>Mot de passe:</label>
-    <input type="password" formControlName="motDePasse" />
-    <div *ngIf="loginForm.get('motDePasse')?.invalid && loginForm.get('motDePasse')?.touched">
-      Mot de passe requis
-    </div>
-  </div>
-  <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
-</form>
+</div>

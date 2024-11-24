@@ -1,0 +1,22 @@
+<!-- src/app/components/paiement/paiement.component.html -->
+<div class="container my-5">
+  <h2 class="text-center mb-4 font-weight-bold text-primary">Paiement de la Facture</h2>
+
+  <form id="payment-form" class="payment-form shadow-lg p-5 rounded" style="background-color: #fff; max-width: 600px; margin: auto;">
+    
+    <div id="card-element" class="form-group mb-4">
+      <!-- Stripe injectera l'élément ici -->
+    </div>
+
+    <button 
+      type="button" 
+      class="btn btn-primary btn-block py-3 font-weight-bold"
+      (click)="payer()" 
+      style="border-radius: 25px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+      <i class="fas fa-credit-card mr-2"></i> Payer
+    </button>
+  </form>
+
+  <!-- Message de confirmation ou d'erreur -->
+  <div id="payment-message" class="text-center mt-4 font-weight-bold" style="font-size: 1.1em;"></div>
+</div>
