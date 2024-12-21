@@ -21,7 +21,7 @@
 
       <mat-card-actions>
         <!-- Le bouton "Payer la facture" s'affiche uniquement si l'état de paiement n'est pas "payée" -->
-        <a *ngIf="facture.etat_paiement !== 'payée'" mat-button color="primary" [routerLink]="['/paiement', facture.id]" class="pay-button">
+        <a *ngIf="isClient() && facture.etat_paiement !== 'payée'" mat-button color="primary" [routerLink]="['/paiement', facture.id]" class="pay-button">
           <mat-icon>payment</mat-icon> Payer la Facture
         </a>
       </mat-card-actions>

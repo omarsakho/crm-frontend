@@ -41,13 +41,15 @@ export class ListeTicketsComponent implements OnInit {
     this.ticketService.obtenirTickets(this.filtres).subscribe(
       (data) => {
         this.tickets = data.tickets;
+        // Tri des tickets par ID décroissant
+        this.tickets.sort((a, b) => b.id - a.id);
         this.dataSource.data = this.tickets;
       },
       (error) => {
         console.error('Erreur lors de la récupération des tickets:', error);
       }
     );
-  }
+  }  
 
   toggleExpand(ticketId: number): void {
     if (this.expandedTickets.has(ticketId)) {

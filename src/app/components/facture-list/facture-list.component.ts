@@ -33,4 +33,8 @@ export class FactureListComponent implements OnInit {
       }
     );
   }
+
+  isClient(): boolean {
+    return localStorage.getItem('role') === 'client';
+  }
 }
