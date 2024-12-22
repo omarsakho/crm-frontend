@@ -1,0 +1,45 @@
+name: Angular CI
+
+# Événements qui déclenchent le workflow
+on:
+  push:
+    branches:
+      - main  # Exécute le workflow lorsqu'une modification est poussée sur la branche main
+  pull_request:
+    branches:
+      - main  # Exécute également sur les pull requests vers la branche main
+
+# Définition des jobs
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Utilise un environnement Ubuntu
+
+    steps:
+      # Étape 1: Récupérer le code source du dépôt
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+
+      # Étape 2: Configurer Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Vous pouvez définir la version exacte de Node.js que vous souhaitez
+
+      # Étape 3: Installer les dépendances npm
+      - name: Install dependencies
+        run: npm install
+
+      # Étape 4: Exécuter les tests Angular
+      - name: Run tests
+        run: npm run test -- --watch=false --browsers=ChromeHeadless  # Exécute les tests unitaires
+
+      # Étape 5: Construire l'application Angular pour la production
+      - name: Build Angular application
+        run: npm run build --configuration=production  # Compile le projet pour la production
+
+      # Étape 6: (optionnel) Upload des artefacts de build (comme le dossier dist)
+      - name: Upload production build
+        uses: actions/upload-artifact@v3
+        with:
+          name: production-build
+          path: dist/  # Dossier de build Angular
