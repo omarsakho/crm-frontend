@@ -4,10 +4,10 @@ name: Angular CI
 on:
   push:
     branches:
-      - main  # Exécute le workflow lorsqu'une modification est poussée sur la branche main
+      - master  # Exécute le workflow lorsqu'une modification est poussée sur la branche main
   pull_request:
     branches:
-      - main  # Exécute également sur les pull requests vers la branche main
+      - master  # Exécute également sur les pull requests vers la branche main
 
 # Définition des jobs
 jobs:
